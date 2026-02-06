@@ -159,6 +159,8 @@ def main(args):
     model = GuildOracle(
             input_dim=train_dataset.features.shape[1],
             hidden_dim=args.hidden_dim
+                , num_layers=args.num_layers
+                , dropout_prob=args.dropout_prob
             )
     model = model.to(device)
     print(f"Paramètres: {count_parameters(model):,}")
@@ -339,6 +341,16 @@ if __name__ == "__main__":
             '--plot', action='store_true', default=True,
             help='Afficher les courbes'
             )
+
+    parser.add_argument(
+        '--num_layers', type=int, default=5,
+        help='Nombre de couches'
+    )
+
+    parser.add_argument(
+        '--dropout_prob', type=float, default=0.1,
+        help='Probabilité de dropout'
+    )
 
     args = parser.parse_args()
 
