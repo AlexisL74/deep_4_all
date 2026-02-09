@@ -111,7 +111,7 @@ class DungeonLogDataset(Dataset):
 # ============================================================================
 
 
-def train_epoch(model, dataloader, criterion, optimizer, device):
+def train_epoch(model, dataloader, criterion, optimizer, device, l1_lambda=0.0):
     """Entraîne le modèle pour une epoch."""
     model.train()
     total_loss = 0
@@ -129,6 +129,11 @@ def train_epoch(model, dataloader, criterion, optimizer, device):
 
         # Loss et backward
         loss = criterion(outputs, labels)
+
+        if l1_lambda > 0:
+            l1_norm = sum(p.abs().sum() for p in model.parameters() if p.requires_grad)
+            loss = loss + l1_lambda * l1_norm
+
         loss.backward()
 
         # Gradient clipping (important pour RNN!)
@@ -323,7 +328,7 @@ def main(args):
     for epoch in range(args.epochs):
         # Train
         train_loss, train_acc = train_epoch(
-                model, train_loader, criterion, optimizer, device
+                model, train_loader, criterion, optimizer, device, l1_lambda=args.l1_lambda
                 )
 
         # Validation
@@ -422,6 +427,13 @@ def plot_history(history, save_path):
     print(f"\nCourbes sauvegardées: {save_path}")
 
 
+def elastic_net_penalty(model, l1_lambda, l2_lambda):
+    """Calcule la pénalité Elastic Net (L1 + L2)."""
+    l1_norm = sum(p.abs().sum() for p in model.parameters() if p.requires_grad)
+    l2_norm = sum(p.pow(2).sum() for p in model.parameters() if p.requires_grad)
+    return l1_lambda * l1_norm + l2_lambda * l2_norm
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
             description="Entraînement de l'Oracle du Donjon (Séquences)"
@@ -479,6 +491,10 @@ if __name__ == "__main__":
     parser.add_argument(
             '--use_scheduler', action='store_true', default=False,
             help='Utiliser un learning rate scheduler'
+            )
+    parser.add_argument(
+            '--l1_lambda', type=float, default=0.0,
+            help='Coefficient de régularisation L1'
             )
 
     # Early stopping
