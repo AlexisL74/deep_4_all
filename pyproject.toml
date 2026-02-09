@@ -23,6 +23,7 @@ dependencies = [
     "transformers>=4.57.5",
     "torch>=2.10.0",
     "torchvision>=0.25.0",
+    "kagglehub[pandas-datasets]"
 ]
 
 [project.optional-dependencies]
