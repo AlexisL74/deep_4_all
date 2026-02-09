@@ -1,6 +1,9 @@
 import torch
 import numpy as np
 import nltk
+import os
+from pathlib import Path
+from dotenv import load_dotenv
 from openai import OpenAI
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
@@ -17,17 +20,17 @@ class DASPipelineQwen:
                 bnb_4bit_compute_dtype=torch.float16,
                 )
 
-        model_id = "unsloth/Qwen2.5-7B-Instruct-bnb-4bit"
+        model_name  = "Qwen/Qwen3-4B-Instruct-2507"
         # Note: "Qwen3" n'est pas encore sorti officiellement au moment de mes données,
         # j'utilise ici un ID Qwen 2.5 4-bit très performant comme placeholder pour votre ID spécifique.
         # Remplacez par votre ID exact : "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit"
 
-        self.model_id = "unsloth/Qwen2.5-7B-Instruct-bnb-4bit"  # Mettez votre ID ici
+        self.model_name = model_name
 
-        print(f"Chargement du modèle étudiant : {self.model_id}...")
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_id, trust_remote_code=True)
+        print(f"Chargement du modèle étudiant : {self.model_name}...")
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name, trust_remote_code=True)
         self.model = AutoModelForCausalLM.from_pretrained(
-                self.model_id,
+                self.model_name,
                 quantization_config=bnb_config,
                 device_map="auto",
                 trust_remote_code=True
@@ -194,8 +197,12 @@ class DASPipelineQwen:
 
 # --- MAIN ---
 if __name__ == "__main__":
-    # Remplacer par votre clé
-    api_key = "sk-..."
+    load_dotenv()
+    api_key = os.getenv("API_KEY")
+    if not api_key:
+        print("Warning: API_KEY not found in environment; using placeholder key.\n"
+              "Set API_KEY in your .env or environment to avoid this message.")
+        api_key = "sk-..."
 
     das = DASPipelineQwen(api_key)
     das.run_das("Explique pourquoi le ciel est bleu de manière scientifique.")
