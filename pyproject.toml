@@ -25,6 +25,7 @@ dependencies = [
     "torchvision>=0.25.0",
     "nltk>=3.9.2",
     "python-dotenv>=1.2.1",
+    "kagglehub[pandas-datasets]"
 ]
 
 [project.optional-dependencies]
