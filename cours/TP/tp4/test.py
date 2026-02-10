@@ -1,4 +1,5 @@
 import os
+import random
 from dotenv import load_dotenv
 from dataset_utils import load_csv, save_prompt_responses, load_prompt_responses
 from Promptotron import Promptotron
@@ -17,11 +18,13 @@ if __name__ == "__main__":
 
     proptotron = Promptotron(api_key, base_url)
 
+    random.shuffle(dino_dataset)
+
     length = len(dino_dataset)
-    i = 0
-    for dino in dino_dataset :
-        i += 1
-        print(f'{i}/{length} : {dino["common_name"]}')
+    max = min(len(dino_dataset), 10)
+    for i in range(0, max) :
+        dino = dino_dataset[i]
+        print(f'{i+1}/{max} : {dino["common_name"]}')
 
         input = f'describe the following dinosaures species : {dino["common_name"]}'
 
