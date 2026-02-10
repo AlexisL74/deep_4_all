@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
-from openai import OpenAI
-from dataset_utils import load_csv
+from dataset_utils import load_csv, save_prompt_responses, load_prompt_responses
+from Promptotron import Promptotron
 
 
 
@@ -9,18 +9,7 @@ if __name__ == "__main__":
     load_dotenv()
     api_key = os.getenv("API_KEY")
     base_url = os.getenv("API_URL")
-    client = OpenAI(api_key=api_key, base_url=base_url)
     
-    messages = [{"role": "user", "content": "hello"}]
-
-    response = client.chat.completions.create(
-            model="openai/gpt-oss-120b",
-            messages=messages,
-            temperature=0.6,
-            logprobs=True,  # Important
-            top_logprobs=1
-            )
-
-    content = response.choices[0].message.content
-    logprobs = response.choices[0].logprobs.content
-    print(content)
+    proptotron = Promptotron(api_key, base_url)
+    response = proptotron.low_temperature_prompt("salut ma couille")
+    save_prompt_responses([response], "./")
