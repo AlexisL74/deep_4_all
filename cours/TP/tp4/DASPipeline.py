@@ -1,5 +1,5 @@
 from StudentModel import StudentModel
-from Promptotron import PrompteResponse
+from promptotron import PrompteResponse
 from dataset_utils import load_prompt_responses
 from data_class.DASResult import DASResult
 
@@ -77,5 +77,3 @@ class DASPipeline:
         print("=" * 60)
 
         return {"low_temp_kept": low_kept, "high_temp_kept": high_kept}
-
-    def temperature_scheduling_learning

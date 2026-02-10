@@ -1,13 +1,9 @@
 import csv
 from dataclasses import asdict
 import json
-<<<<<<< HEAD
-from Promptotron import PrompteResponse
-from data_class.DASResult import DASResult
-=======
 from promptotron import PrompteResponse
+from data_class.DASResult import DASResult
 
->>>>>>> 36c990fc10da8ad3c84f24cefcecd64145102417
 
 def load_csv(path: str) -> list:
     with open(path, newline="", encoding="utf-8") as file:
