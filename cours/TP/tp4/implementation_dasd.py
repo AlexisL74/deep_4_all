@@ -1,3 +1,6 @@
+import os
+from pathlib import Path
+from dotenv import load_dotenv
 import numpy as np
 import torch
 from openai import OpenAI
@@ -150,7 +153,7 @@ class DASPipelineQwen:
             return
 
         print(f"Réponse Teacher reçue ({len(teacher_answer["content"])} chars).")
-
+        
         # 2. Student & Calculs
         try:
             student_answer = self.get_student_logprobs(prompt, teacher_answer["content"])
@@ -168,7 +171,8 @@ class DASPipelineQwen:
 # --- MAIN EXECUTION ---
 if __name__ == "__main__":
     # Clé API
-    API_KEY = "token here"
+    load_dotenv()
+    API_KEY = os.getenv("API_KEY")
 
     # ID Modèle Étudiant (Compatible 4-bit unsloth/bnb)
     STUDENT_ID = "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit"
