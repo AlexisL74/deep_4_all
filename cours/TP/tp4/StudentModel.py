@@ -90,5 +90,3 @@ class StudentModel:
             "num_tokens":    len(valid_logprobs),
             "logprobs":      valid_logprobs.tolist()
         }
-
-    
