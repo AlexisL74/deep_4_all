@@ -1,19 +1,20 @@
+import asyncio
 from dataclasses import dataclass
 import numpy as np
-from openai import OpenAI
+from openai import OpenAI, AsyncOpenAI
 
 
 class Promptotron :
     def __init__(self, api_key: str, base_url: str):
-        self.client = OpenAI(api_key=api_key, base_url=base_url)
+        self.client = AsyncOpenAI(api_key=api_key, base_url=base_url)
         self.model = "openai/gpt-oss-120b"
         self.low_temperature = 0.1
         self.high_temperature = 0.9
 
 
-    def prompt(self, content: str, temperature: float, id: int) :
+    async def prompt(self, content: str, temperature: float, id: int) :
         messages = [{"role": "user", "content": content}]
-        response = self.client.chat.completions.create(
+        response = await self.client.chat.completions.create(
             model="openai/gpt-oss-120b",
             messages=messages,
             temperature=temperature,
@@ -43,11 +44,22 @@ class Promptotron :
             len(tokens)
         )
         
-    def low_temperature_prompt(self, content: str, id: int) :
-        return self.prompt(content, self.low_temperature, id)
+    async def low_temperature_prompt(self, content: str, id: int) :
+        return await self.prompt(content, self.low_temperature, id)
 
-    def high_temperature_prompt(self, content: str, id: int) :
-        return self.prompt(content, self.high_temperature, id)
+    async def high_temperature_prompt(self, content: str, id: int) :
+        return await self.prompt(content, self.high_temperature, id)
+    
+    async def double_temperature_prompt_async(self, content: str, id: int):
+        return await asyncio.gather(
+            self.low_temperature_prompt(content, id),
+            self.high_temperature_prompt(content, id)
+        )
+
+    def double_temperature_prompt(self, content: str, id: int):
+        return asyncio.run(
+            self.double_temperature_prompt_async(content, id)
+        )
     
 @dataclass
 class PrompteResponse :
