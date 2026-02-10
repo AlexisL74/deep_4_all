@@ -1,7 +1,7 @@
 import csv
 from dataclasses import asdict
 import json
-from Promptotron import PrompteResponse
+from promptotron import PrompteResponse
 
 
 def load_csv(path: str) -> list:
@@ -21,9 +21,12 @@ def save_prompt_responses(responses: list[PrompteResponse], path: str) :
         )
 
 def load_prompt_responses(path: str) :
-    with open(path, encoding="utf-8") as f:
-        data = json.load(f)
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
 
-    return [PrompteResponse(**item) for item in data]
+        return [PrompteResponse(**item) for item in data]
+    except:
+        return []
     
 __all__  = [ load_csv, save_prompt_responses, load_prompt_responses ]

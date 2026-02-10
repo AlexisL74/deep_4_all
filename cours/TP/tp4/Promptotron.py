@@ -11,7 +11,7 @@ class Promptotron :
         self.high_temperature = 0.9
 
 
-    def prompt(self, content: str, temperature: float) :
+    def prompt(self, content: str, temperature: float, id: int) :
         messages = [{"role": "user", "content": content}]
         response = self.client.chat.completions.create(
             model="openai/gpt-oss-120b",
@@ -34,6 +34,7 @@ class Promptotron :
         mean_logprob = np.exp(np.mean(logprobs))
 
         return PrompteResponse(
+            id,
             content,
             output,
             mean_logprob,
@@ -42,14 +43,15 @@ class Promptotron :
             len(tokens)
         )
         
-    def low_temperature_prompt(self, content: str) :
-        return self.prompt(content, self.low_temperature)
+    def low_temperature_prompt(self, content: str, id: int) :
+        return self.prompt(content, self.low_temperature, id)
 
-    def high_temperature_prompt(self, content: str) :
-        return self.prompt(content, self.high_temperature)
+    def high_temperature_prompt(self, content: str, id: int) :
+        return self.prompt(content, self.high_temperature, id)
     
 @dataclass
 class PrompteResponse :
+    id: int
     input: str
     output: str
     mean_logprob: float
