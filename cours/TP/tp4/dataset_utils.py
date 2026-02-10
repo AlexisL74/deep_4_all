@@ -30,8 +30,9 @@ def load_prompt_responses(path: str) :
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
 
-<<<<<<< HEAD
-    return [PrompteResponse(**item) for item in data]
+        return [PrompteResponse(**item) for item in data]
+    except:
+        return []
 
 def save_das_results(responses: list, path: str) -> None:
     payload = [asdict(r) for r in responses]
@@ -55,10 +56,5 @@ def save_sharegpt(results: list, path: str) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(sharegpt, f, ensure_ascii=False, indent=2)
     print(f"[ShareGPT] {len(sharegpt)} conversations sauvegardées dans '{path}'")
-=======
-        return [PrompteResponse(**item) for item in data]
-    except:
-        return []
->>>>>>> 36c990fc10da8ad3c84f24cefcecd64145102417
     
 __all__ = [load_csv, save_prompt_responses, load_prompt_responses, save_das_results, das_results_to_sharegpt, save_sharegpt]

@@ -77,3 +77,5 @@ class DASPipeline:
         print("=" * 60)
 
         return {"low_temp_kept": low_kept, "high_temp_kept": high_kept}
+
+    def temperature_scheduling_learning
