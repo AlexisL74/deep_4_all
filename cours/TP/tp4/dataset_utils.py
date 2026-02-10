@@ -25,8 +25,12 @@ def load_prompt_responses(path: str) :
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
 
-        return [PrompteResponse(**item) for item in data]
-    except:
+        l = []
+        for i in data :
+            l.append(PrompteResponse(i["id"], i["input"], i["output"], i["mean_logprob"], i["temperature"]))
+        return l
+    except Exception as e:
+        print(e)
         return []
 
 def save_das_results(responses: list, path: str) -> None:

@@ -25,11 +25,9 @@ class Promptotron :
         output = response.choices[0].message.content
         logprobs_data = response.choices[0].logprobs
 
-        tokens = []
         logprobs = []
 
         for token_info in logprobs_data.content:
-            tokens.append(token_info.token)
             logprobs.append(token_info.logprob)
 
         mean_logprob = np.exp(np.mean(logprobs))
@@ -40,8 +38,6 @@ class Promptotron :
             output,
             mean_logprob,
             temperature,
-            tokens,
-            len(tokens)
         )
         
     async def low_temperature_prompt(self, content: str, id: int) :
@@ -68,8 +64,6 @@ class PrompteResponse :
     output: str
     mean_logprob: float
     temperature: float
-    tokens: list[str]
-    num_tokens: int
 
 
 __all__ = [ Promptotron, PrompteResponse ]
