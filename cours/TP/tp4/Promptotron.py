@@ -27,11 +27,11 @@ class Promptotron :
         tokens = []
         logprobs = []
 
-        mean_logprob = np.exp(np.mean(logprobs))
-
         for token_info in logprobs_data.content:
             tokens.append(token_info.token)
             logprobs.append(token_info.logprob)
+
+        mean_logprob = np.exp(np.mean(logprobs))
 
         return PrompteResponse(
             content,
