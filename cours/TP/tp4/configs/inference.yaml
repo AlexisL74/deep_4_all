@@ -1,0 +1,6 @@
+model_name_or_path: unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit
+adapter_name_or_path: output/stage2
+quantization_bit: 4
+quantization_method: bitsandbytes
+template: qwen3
+finetuning_type: lora

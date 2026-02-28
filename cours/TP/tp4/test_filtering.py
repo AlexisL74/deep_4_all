@@ -19,8 +19,8 @@ if __name__ == "__main__":
 
     # 3. Filtrage sur les deux datasets existants
     results = pipeline.response_filtering(
-        low_temp_path="data/low_temperature_responses.json",
-        high_temp_path="data/high_temperature_responses.json",
+        low_temp_path="data/low_temperature_dataset.json",
+        high_temp_path="data/high_temperature_dataset.json",
     )
 
     low_kept = results["low_temp_kept"]
