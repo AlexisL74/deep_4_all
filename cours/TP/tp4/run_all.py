@@ -36,35 +36,3 @@ if __name__ == "__main__":
     del student
     del pipeline
     torch.cuda.empty_cache()
-
-    # ============================================
-    # ÉTAPE 2 : Entraînement LLaMA-Factory
-    # ============================================
-    print("\n" + "=" * 60)
-    print("ÉTAPE 2 : Training (LLaMA-Factory)")
-    print("=" * 60)
-
-    trainer = DASTrainer(
-        model_name="Qwen/Qwen3-4B-Instruct",
-        output_dir="output",
-        llamafactory_data_dir="data",
-        lora_rank=16,
-        lora_alpha=32,
-        num_epochs_stage1=3.0,
-        num_epochs_stage2=2.0,
-        lr_stage1=2e-5,
-        lr_stage2=1e-5,
-        batch_size=1,
-        gradient_accumulation_steps=8,
-        cutoff_len=2048,
-    )
-
-    train_results = trainer.train_full_pipeline(
-        stage1_path="data/train_stage_1.json",
-        stage2_path="data/train_stage_2.json",
-        export=True,
-    )
-
-    print("\n=== PIPELINE COMPLET TERMINÉ ===")
-    for k, v in train_results.items():
-        print(f"  {k}: {v}")
