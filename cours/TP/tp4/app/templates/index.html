@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dinosaur Descriptor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">Describe a dinosaur</div>
+    <p class="description">Enter a few sentences describing the dinosaur you have in mind and submit. The system will return the most likely species name.</p>
+    <div id="result" class="box">
+        <!-- last response shown here -->
+    </div>
+    <div class="input-area">
+        <textarea id="description" placeholder="Write your description here..." rows="4"></textarea>
+        <button onclick="submitDescription()">Submit</button>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

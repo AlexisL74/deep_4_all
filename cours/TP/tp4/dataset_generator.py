@@ -37,10 +37,12 @@ class DatasetGenerator :
                     low_temp_dataset.append(low_res)
                     high_temp_dataset.append(high_res)
         finally:
-            return {
-                "low_temp" : low_temp_dataset,
-                "high_temp" : high_temp_dataset
-            }
+            pass
+
+        return {
+            "low_temp" : low_temp_dataset,
+            "high_temp" : high_temp_dataset
+        }
         
     async def generate_one_dino(self, dino, i):
         print(f'{dino["common_name"]}')

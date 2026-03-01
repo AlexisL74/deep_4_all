@@ -1,0 +1,197 @@
+{
+  "report": {
+    "prompts": [
+      {
+        "id": 1,
+        "text": "Large bipedal carnivore with tiny forelimbs and huge jaws, often considered the king of the tyrant dinosaurs.",
+        "label": "tyrannosaurus rex"
+      },
+      {
+        "id": 2,
+        "text": "Long neck, massive body, columnar legs, herbivore that browsed high vegetation.",
+        "label": "brachiosaurus"
+      },
+      {
+        "id": 3,
+        "text": "Armored dinosaur with a clubbed tail and plates or spikes along its back.",
+        "label": "ankylosaurus"
+      },
+      {
+        "id": 4,
+        "text": "Two-horned face with a large frill, herbivorous, often found in herds.",
+        "label": "triceratops"
+      },
+      {
+        "id": 5,
+        "text": "Medium-sized, fast, sickle-clawed theropod, likely pack hunter with a long tail for balance.",
+        "label": "velociraptor"
+      },
+      {
+        "id": 6,
+        "text": "Large sail-backed reptile with elongated neural spines on its back, semi-aquatic predator.",
+        "label": "spinosaurus"
+      },
+      {
+        "id": 7,
+        "text": "Small to medium bird-like dinosaur with feathers and long arms — considered close to the origin of birds.",
+        "label": "archaeopteryx"
+      },
+      {
+        "id": 8,
+        "text": "Huge armored plates along the back and a very long tail, often mistaken in popular culture with stegosaurus-like plates.",
+        "label": "stegosaurus"
+      },
+      {
+        "id": 9,
+        "text": "Small herbivorous ornithopod known for its duck-billed snout and herd behavior.",
+        "label": "hadrosaurus"
+      },
+      {
+        "id": 10,
+        "text": "A nimble, small-bodied predator with a crested head and likely strong eyesight.",
+        "label": "allosaurus"
+      }
+    ],
+    "teacher": {
+      "1": {
+        "text": "",
+        "error": "Error code: 401 - {'error': {'message': 'Invalid Authentication', 'type': 'authentication_error', 'param': None, 'code': None}}"
+      },
+      "2": {
+        "text": "",
+        "error": "Error code: 401 - {'error': {'message': 'Invalid Authentication', 'type': 'authentication_error', 'param': None, 'code': None}}"
+      },
+      "3": {
+        "text": "",
+        "error": "Error code: 401 - {'error': {'message': 'Invalid Authentication', 'type': 'authentication_error', 'param': None, 'code': None}}"
+      },
+      "4": {
+        "text": "",
+        "error": "Error code: 401 - {'error': {'message': 'Invalid Authentication', 'type': 'authentication_error', 'param': None, 'code': None}}"
+      },
+      "5": {
+        "text": "",
+        "error": "Error code: 401 - {'error': {'message': 'Invalid Authentication', 'type': 'authentication_error', 'param': None, 'code': None}}"
+      },
+      "6": {
+        "text": "",
+        "error": "Error code: 401 - {'error': {'message': 'Invalid Authentication', 'type': 'authentication_error', 'param': None, 'code': None}}"
+      },
+      "7": {
+        "text": "",
+        "error": "Error code: 401 - {'error': {'message': 'Invalid Authentication', 'type': 'authentication_error', 'param': None, 'code': None}}"
+      },
+      "8": {
+        "text": "",
+        "error": "Error code: 401 - {'error': {'message': 'Invalid Authentication', 'type': 'authentication_error', 'param': None, 'code': None}}"
+      },
+      "9": {
+        "text": "",
+        "error": "Error code: 401 - {'error': {'message': 'Invalid Authentication', 'type': 'authentication_error', 'param': None, 'code': None}}"
+      },
+      "10": {
+        "text": "",
+        "error": "Error code: 401 - {'error': {'message': 'Invalid Authentication', 'type': 'authentication_error', 'param': None, 'code': None}}"
+      }
+    },
+    "student": {
+      "1": {
+        "text": " It is the largest known dinosaur, with a length of 30 to 35 meters and a weight of up to 80 metric tons. It had a long, powerful neck, a",
+        "latency_s": 6.021072700001241
+      },
+      "2": {
+        "text": " This is the description of a type of animal, and the animal is most likely to be a(n) \n\nA. 3-toed sloth.  \nB.  long-necked giraffe",
+        "latency_s": 4.838476299999456
+      },
+      "3": {
+        "text": " This creature, known as the Ankylosaurus, is a prime example of the armored dinosaurs that evolved to protect themselves from predators. The Ankylosaurus had a robust body, a short neck",
+        "latency_s": 5.373396400005731
+      },
+      "4": {
+        "text": " This creature is a common sight in the savannas and grasslands of the African continent. It has a large, flat head with a prominent frill, and a long neck. It eats grass",
+        "latency_s": 5.591407900006743
+      },
+      "5": {
+        "text": " \nThe name \"Saurian\" is derived from the Greek \"sauros\" meaning \"lizard\" and \"ian\" meaning \"to be\" or \"to have\" (as in \"",
+        "latency_s": 4.956463299997267
+      },
+      "6": {
+        "text": " The species is known to have a high tolerance to cold and is capable of surviving in deep, dark, cold water. The species is also known to be capable of producing a loud, low-frequency sound",
+        "latency_s": 4.870453399998951
+      },
+      "7": {
+        "text": " What is it?\n\nA. *Archaeopteryx*\n\nB. *Tyrannosaurus rex*\n\nC. *Velociraptor*\n\nD. *Deinonychus*\n\n",
+        "latency_s": 5.047695399996883
+      },
+      "8": {
+        "text": " The tail is long and very muscular, with a small tail fin, and a large, muscular tail that is used for balance and steering. It has a very large head with a massive, powerful jaw",
+        "latency_s": 5.046825499994156
+      },
+      "9": {
+        "text": " The most primitive known ornithopod, with a long, narrow skull and a small, narrow beak, which is adapted for grazing. A well-known example is *Hadrosaurus*, which",
+        "latency_s": 5.000949400004174
+      },
+      "10": {
+        "text": " The creature is known for its speed and agility, and is often seen leaping from tree to tree with ease. It is also known for its ability to climb and descend vertical surfaces with little effort.",
+        "latency_s": 4.920518099999754
+      }
+    },
+    "student_lora": null,
+    "student_judged": {
+      "1": {
+        "expected": "tyrannosaurus rex",
+        "output": " It is the largest known dinosaur, with a length of 30 to 35 meters and a weight of up to 80 metric tons. It had a long, powerful neck, a",
+        "match": false
+      },
+      "2": {
+        "expected": "brachiosaurus",
+        "output": " This is the description of a type of animal, and the animal is most likely to be a(n) \n\nA. 3-toed sloth.  \nB.  long-necked giraffe",
+        "match": false
+      },
+      "3": {
+        "expected": "ankylosaurus",
+        "output": " This creature, known as the Ankylosaurus, is a prime example of the armored dinosaurs that evolved to protect themselves from predators. The Ankylosaurus had a robust body, a short neck",
+        "match": true
+      },
+      "4": {
+        "expected": "triceratops",
+        "output": " This creature is a common sight in the savannas and grasslands of the African continent. It has a large, flat head with a prominent frill, and a long neck. It eats grass",
+        "match": false
+      },
+      "5": {
+        "expected": "velociraptor",
+        "output": " \nThe name \"Saurian\" is derived from the Greek \"sauros\" meaning \"lizard\" and \"ian\" meaning \"to be\" or \"to have\" (as in \"",
+        "match": false
+      },
+      "6": {
+        "expected": "spinosaurus",
+        "output": " The species is known to have a high tolerance to cold and is capable of surviving in deep, dark, cold water. The species is also known to be capable of producing a loud, low-frequency sound",
+        "match": false
+      },
+      "7": {
+        "expected": "archaeopteryx",
+        "output": " What is it?\n\nA. *Archaeopteryx*\n\nB. *Tyrannosaurus rex*\n\nC. *Velociraptor*\n\nD. *Deinonychus*\n\n",
+        "match": true
+      },
+      "8": {
+        "expected": "stegosaurus",
+        "output": " The tail is long and very muscular, with a small tail fin, and a large, muscular tail that is used for balance and steering. It has a very large head with a massive, powerful jaw",
+        "match": false
+      },
+      "9": {
+        "expected": "hadrosaurus",
+        "output": " The most primitive known ornithopod, with a long, narrow skull and a small, narrow beak, which is adapted for grazing. A well-known example is *Hadrosaurus*, which",
+        "match": true
+      },
+      "10": {
+        "expected": "allosaurus",
+        "output": " The creature is known for its speed and agility, and is often seen leaping from tree to tree with ease. It is also known for its ability to climb and descend vertical surfaces with little effort.",
+        "match": false
+      }
+    }
+  },
+  "summary": {
+    "teacher_available": true,
+    "student_accuracy": 0.3
+  }
+}
